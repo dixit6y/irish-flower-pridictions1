@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Flower Classification</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            width: 320px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 12px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4a7bd0;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3a65b0;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #e6f4ea;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #1e6b34;
+        }
+
+        .error {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #fdecea;
+            border-radius: 5px;
+            color: #b3261e;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Iris Flower Classification</h1>
+
+        <form method="POST">
+            <label for="sepal_length">Sepal Length</label>
+            <input type="number" step="any" min="0" id="sepal_length" name="sepal_length" placeholder="e.g. 5.1" required>
+
+            <label for="sepal_width">Sepal Width</label>
+            <input type="number" step="any" min="0" id="sepal_width" name="sepal_width" placeholder="e.g. 3.5" required>
+
+            <label for="petal_length">Petal Length</label>
+            <input type="number" step="any" min="0" id="petal_length" name="petal_length" placeholder="e.g. 1.4" required>
+
+            <label for="petal_width">Petal Width</label>
+            <input type="number" step="any" min="0" id="petal_width" name="petal_width" placeholder="e.g. 0.2" required>
+
+            <button type="submit">Predict Flower</button>
+        </form>
+
+        {% if result %}
+            <div class="result">Predicted Flower: <strong>{{ result }}</strong></div>
+        {% endif %}
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
